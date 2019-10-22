@@ -260,33 +260,34 @@ module.exports = function() {
       prevCandidates = prevBlock.selectAll(".c");
     }
 
-    if (filterType == "nunca eleitos") {
-      disableQuestion("já eleitos");
-      filteredData = filteredData.filter(function(c) {
-        return c.elections_won == 0;
-      });
-      removed = prevCandidates.filter(function(d, i) {
-        return d.elections_won == 0;
-      });
-    } else if (filterType == "já eleitos") {
-      disableQuestion("nunca eleitos");
-      disableQuestion("nunca concorreram");
-      filteredData = filteredData.filter(function(c) {
-        return c.elections_won > 1;
-      });
-      removed = prevCandidates.filter(function(d, i) {
-        return d.elections_won > 1;
-      });
-    } else if (filterType == "nunca concorreram") {
-      disableQuestion("já eleitos");
-      disableQuestion("nunca eleitos");
-      filteredData = filteredData.filter(function(c) {
-        return c.elections == 0;
-      });
-      removed = prevCandidates.filter(function(d, i) {
-        return d.elections == 0;
-      });
-    } else if (filterType == "mulheres") {
+    // if (filterType == "nunca eleitos") {
+    //   disableQuestion("já eleitos");
+    //   filteredData = filteredData.filter(function(c) {
+    //     return c.elections_won == 0;
+    //   });
+    //   removed = prevCandidates.filter(function(d, i) {
+    //     return d.elections_won == 0;
+    //   });
+    // } else if (filterType == "já eleitos") {
+    //   disableQuestion("nunca eleitos");
+    //   disableQuestion("nunca concorreram");
+    //   filteredData = filteredData.filter(function(c) {
+    //     return c.elections_won > 1;
+    //   });
+    //   removed = prevCandidates.filter(function(d, i) {
+    //     return d.elections_won > 1;
+    //   });
+    // } else if (filterType == "nunca concorreram") {
+    //   disableQuestion("já eleitos");
+    //   disableQuestion("nunca eleitos");
+    //   filteredData = filteredData.filter(function(c) {
+    //     return c.elections == 0;
+    //   });
+    //   removed = prevCandidates.filter(function(d, i) {
+    //     return d.elections == 0;
+    //   });
+    // } else
+    if (filterType == "mulheres") {
       disableQuestion("homens");
       filteredData = filteredData.filter(function(c) {
         return c.gender.toLowerCase() == "feminino";
@@ -1250,20 +1251,20 @@ module.exports = function() {
         currGender = "f";
       } else if (filterType == "homens") {
         phrase = prep[currGender] + ", <b>" + amount + "</b> são homens";
-      } else if (filterType == "nunca concorreram") {
-        phrase =
-          prep[currGender] +
-          ", <b>" +
-          amount +
-          "</b> nunca concorreram numa eleição";
-      } else if (filterType == "nunca eleitos") {
-        phrase = prep[currGender] + ", <b>" + amount + "</b> nunca se elegeram";
-      } else if (filterType == "já eleitos") {
-        phrase =
-          prep[currGender] +
-          ", <b>" +
-          amount +
-          "</b> já se elegeram anteriormente";
+        // } else if (filterType == "nunca concorreram") {
+        //   phrase =
+        //     prep[currGender] +
+        //     ", <b>" +
+        //     amount +
+        //     "</b> nunca concorreram numa eleição";
+        // } else if (filterType == "nunca eleitos") {
+        //   phrase = prep[currGender] + ", <b>" + amount + "</b> nunca se elegeram";
+        // } else if (filterType == "já eleitos") {
+        //   phrase =
+        //     prep[currGender] +
+        //     ", <b>" +
+        //     amount +
+        //     "</b> já se elegeram anteriormente";
       } else if (filterType == "negros ou pardos") {
         phrase =
           prep[currGender] +
@@ -1281,16 +1282,16 @@ module.exports = function() {
       if (filterType == "homens") {
         phrase = prep[currGender] + ", <b>" + amount + "</b> é homem";
         currGender = "m";
-      } else if (filterType == "nunca concorreram") {
-        phrase =
-          prep[currGender] +
-          ", <b>" +
-          amount +
-          "</b> nunca concorreu numa eleição";
-      } else if (filterType == "nunca eleitos") {
-        phrase = prep[currGender] + ", <b>" + amount + "</b> nunca se elegeu";
-      } else if (filterType == "já eleitos") {
-        phrase = prep[currGender] + ", <b>" + amount + "</b> já se elegeu";
+        // } else if (filterType == "nunca concorreram") {
+        //   phrase =
+        //     prep[currGender] +
+        //     ", <b>" +
+        //     amount +
+        //     "</b> nunca concorreu numa eleição";
+        // } else if (filterType == "nunca eleitos") {
+        //   phrase = prep[currGender] + ", <b>" + amount + "</b> nunca se elegeu";
+        // } else if (filterType == "já eleitos") {
+        //   phrase = prep[currGender] + ", <b>" + amount + "</b> já se elegeu";
       } else if (filterType == "negros ou pardos") {
         phrase =
           prep[currGender] +
